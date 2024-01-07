@@ -1,6 +1,6 @@
 Config = {}
 Config.RequireJob = true                       -- do you need a mech job to use parts?
-Config.FuelResource = 'LegacyFuel'             -- supports any that has a GetFuel() and SetFuel() export
+Config.FuelResource = 'ps-fuel'             -- supports any that has a GetFuel() and SetFuel() export
 
 Config.PaintTime = 5                           -- how long it takes to paint a vehicle in seconds
 Config.ColorFavorites = false                  -- add your own colors to the favorites menu (see bottom of const.lua)
@@ -158,7 +158,7 @@ Config.Shops = {
         paint = vector3(-202.42, -1322.16, 31.29),
         vehicles = {
             withdraw = vector3(0, 0, 0),
-            spawn = vector4(-370.51, -107.88, 38.35, 72.56),
+            spawn = vector4(-362.67, -111.58, 38.7, 161.9),
             list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
         },
         shopItems = {
