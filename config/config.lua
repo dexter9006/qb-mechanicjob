@@ -45,7 +45,7 @@ Config.Shops = {
         vehicles = {
             withdraw = vector3(-369.30, -104.75, 38.38),
             spawn = vector4(-369.65, -107.8, 38.65, 70.52),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
+            list = { 'flatbed', 'towtruck' }
         },
         shopItems = {
             { name = 'veh_toolbox',       price = 5000, amount = 50 },
@@ -83,7 +83,7 @@ Config.Shops = {
         vehicles = {
             withdraw = vector3(1185.63, 2646.01, 37.91),
             spawn = vector4(1188.18, 2657.56, 37.79, 316.74),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
+            list = { 'flatbed', 'towtruck' }
         },
         shopItems = {
             { name = 'veh_toolbox',       price = 5000, amount = 50 },
@@ -121,7 +121,7 @@ Config.Shops = {
         vehicles = {
             withdraw = vector3(-1142.04, -1994.58, 13.26),
             spawn = vector4(-1137.42, -1993.26, 13.14, 226.07),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
+            list = { 'flatbed', 'towtruck' }
         },
         shopItems = {
             { name = 'veh_toolbox',       price = 5000, amount = 50 },
@@ -159,7 +159,7 @@ Config.Shops = {
         vehicles = {
             withdraw = vector3(0, 0, 0),
             spawn = vector4(-362.67, -111.58, 38.7, 161.9),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
+            list = { 'flatbed', 'towtruck' }
         },
         shopItems = {
             { name = 'veh_toolbox',       price = 5000, amount = 50 },
@@ -197,7 +197,7 @@ Config.Shops = {
         vehicles = {
             withdraw = vector3(107.08, 6614.90, 31.96),
             spawn = vector4(110.91, 6609.32, 31.81, 315.11),
-            list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
+            list = { 'flatbed', 'towtruck' }
         },
         shopItems = {
             { name = 'veh_toolbox',       price = 5000, amount = 50 },
