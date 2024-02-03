@@ -31,7 +31,7 @@ Config.WearableParts = { -- unused if Config.UseWearableParts is false (feel fre
 }
 
 Config.Shops = {
-    mechanic = { -- City location
+    lscustom = { -- City location
         managed = true,
         shopLabel = 'LS Customs',
         showBlip = true,
@@ -69,6 +69,7 @@ Config.Shops = {
             { name = 'tirerepairkit',     price = 5000, amount = 50 },
         }
     },
+    --[[
     mechanic2 = { -- Harmony Location
         managed = true,
         shopLabel = 'LS Harmony',
@@ -145,7 +146,8 @@ Config.Shops = {
             { name = 'tirerepairkit',     price = 5000, amount = 50 },
         }
     },
-    bennys = { -- Default Bennys Location
+    --]]
+    mechanic = { -- Default Bennys Location
         managed = true,
         shopLabel = 'Benny\'s Motorworks',
         showBlip = true,
@@ -183,6 +185,7 @@ Config.Shops = {
             { name = 'tirerepairkit',     price = 5000, amount = 50 },
         }
     },
+    --[[
     beeker = { -- Paleto Location
         managed = true,
         shopLabel = 'Beeker\'s Garage',
@@ -221,4 +224,5 @@ Config.Shops = {
             { name = 'tirerepairkit',     price = 5000, amount = 50 },
         }
     },
+    --]]
 }
