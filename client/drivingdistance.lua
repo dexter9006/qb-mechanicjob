@@ -66,18 +66,25 @@ local function ApplyDamageBasedOnDistance(distance)
     SetVehicleEngineHealth(vehicle, engineHealth - damage)
 end
 
+local km = 0
+
+RegisterNetEvent('qb-mechanicjob:client:InitiateHUD', function(kms)
+    km = kms
+end)
+local HUD = false
 local function TrackDistance()
     CreateThread(function()
         while true do
             Wait(0)
             if not vehicle then break end
-
             local ped = PlayerPedId()
             local isDriver = GetPedInVehicleSeat(vehicle, -1) == ped
             local speed = GetEntitySpeed(vehicle)
 
             if isDriver then
                 if plate and speed > 5 then
+                    if plate and not HUD then TriggerServerEvent('qb-mechanicjob:server:InitiateHUD', plate) HUD = true end
+                    
                     if not drivingDistance[plate] then
                         drivingDistance[plate] = { distance = 0, lastCoords = GetEntityCoords(vehicle) }
                         InitializeVehicleComponents()
@@ -97,14 +104,20 @@ local function TrackDistance()
                             if randomNumber <= Config.WearablePartsChance then
                                 DamageRandomComponent()
                             end
+                            local result = km + drivingDistance[plate].distance
+                            TriggerEvent("qb-hud:km",result)
                         end
                     end
+                else
+                    HUD = false
                 end
             else
                 if drivingDistance[plate] then
                     TriggerServerEvent('qb-mechanicjob:server:updateDrivingDistance', plate, drivingDistance[plate].distance)
                     TriggerServerEvent('qb-mechanicjob:server:updateVehicleComponents', plate, vehicleComponents[plate])
                 end
+                drivingDistance[plate] = nil
+                HUD = false
                 plate = nil
                 vehicle = nil
                 break
@@ -112,6 +125,8 @@ local function TrackDistance()
         end
     end)
 end
+
+
 
 -- Handler
 
@@ -125,5 +140,6 @@ AddEventHandler('gameEventTriggered', function(event)
         local vehicleClass = GetVehicleClass(vehicle)
         if Config.IgnoreClasses[vehicleClass] then return end
         TrackDistance()
+        --print('on')
     end
 end)
