@@ -210,14 +210,18 @@ end)
 
 RegisterNetEvent('qb-mechanicjob:server:updateDrivingDistance', function(plate, distance)
     if plate and distance then
-        if drivingDistance[plate] then
-            drivingDistance[plate] = drivingDistance[plate] + distance
-        else
-            drivingDistance[plate] = distance
-        end
+        drivingDistance[plate] = distance
     end
     local isOwned = IsVehicleOwned(plate)
     if isOwned then MySQL.update('UPDATE player_vehicles SET drivingdistance = drivingdistance + ? WHERE plate = ?', { drivingDistance[plate], plate }) end
+end)
+
+RegisterNetEvent('qb-mechanicjob:server:InitiateHUD', function(plate)
+    local src = source
+    if plate then
+        local km = MySQL.scalar.await('SELECT drivingdistance from player_vehicles WHERE plate = ?', { plate })
+        TriggerClientEvent('qb-mechanicjob:client:InitiateHUD', src, km)
+    end
 end)
 
 RegisterNetEvent('qb-mechanicjob:server:removeItem', function(part, amount)
