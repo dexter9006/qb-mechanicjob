@@ -31,6 +31,45 @@ Config.WearableParts = { -- unused if Config.UseWearableParts is false (feel fre
 }
 
 Config.Shops = {
+    mechanic = { -- Default Bennys Location
+        managed = true,
+        shopLabel = 'Benny\'s Motorworks',
+        showBlip = true,
+        blipSprite = 72,
+        blipColor = 46,
+        blipCoords = vector3(-211.73, -1325.28, 30.89),
+        shop = vector3(-195.80, -1318.24, 31.08),
+        duty = vector3(-205.27, -1331.29, 34.89),
+        stash = vector3(-199.58, -1314.65, 31.08),
+        paint = vector3(-195.46, -1325.59, 31.13),
+        vehicles = {
+            withdraw = vector3(0, 0, 0),
+            spawn = vector4(-362.67, -111.58, 38.7, 161.9),
+            list = { 'flatbed', 'towtruck' }
+        },
+        shopItems = {
+            { name = 'veh_toolbox',       price = 5000, amount = 50 },
+            { name = 'veh_armor',         price = 5000, amount = 50 },
+            { name = 'veh_brakes',        price = 5000, amount = 50 },
+            { name = 'veh_engine',        price = 5000, amount = 50 },
+            { name = 'veh_suspension',    price = 5000, amount = 50 },
+            { name = 'veh_transmission',  price = 5000, amount = 50 },
+            { name = 'veh_turbo',         price = 5000, amount = 50 },
+            { name = 'veh_interior',      price = 5000, amount = 50 },
+            { name = 'veh_exterior',      price = 5000, amount = 50 },
+            { name = 'veh_wheels',        price = 5000, amount = 50 },
+            { name = 'veh_neons',         price = 5000, amount = 50 },
+            { name = 'veh_xenons',        price = 5000, amount = 50 },
+            { name = 'veh_tint',          price = 5000, amount = 50 },
+            { name = 'veh_plates',        price = 5000, amount = 50 },
+            { name = 'nitrous',           price = 5000, amount = 50 },
+            { name = 'tunerlaptop',       price = 5000, amount = 50 },
+            { name = 'repairkit',         price = 5000, amount = 50 },
+            { name = 'advancedrepairkit', price = 5000, amount = 50 },
+            { name = 'tirerepairkit',     price = 5000, amount = 50 },
+        }
+    },
+    --[[
     lscustom = { -- City location
         managed = true,
         shopLabel = 'LS Customs',
@@ -69,8 +108,9 @@ Config.Shops = {
             { name = 'tirerepairkit',     price = 5000, amount = 50 },
         }
     },
+    --]]
     --[[
-    mechanic2 = { -- Harmony Location
+    lsharmony = { -- Harmony Location
         managed = true,
         shopLabel = 'LS Harmony',
         showBlip = true,
@@ -108,20 +148,22 @@ Config.Shops = {
             { name = 'tirerepairkit',     price = 5000, amount = 50 },
         }
     },
-    mechanic3 = { -- Airport Location
+    --]]
+    --[[
+    beeker = { -- Paleto Location
         managed = true,
-        shopLabel = 'LS Airport Repairs',
+        shopLabel = 'Beeker\'s Garage',
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
-        blipCoords = vector3(-1154.92, -2006.41, 13.18),
-        shop = vector3(-1156.56, -1999.85, 13.19),
-        duty = vector3(-1149.17, -1998.27, 13.91),
-        stash = vector3(-1146.40, -2002.05, 13.19),
-        paint = vector3(-1170.60, -2014.90, 13.23),
+        blipCoords = vector3(109.95, 6627.34, 31.79),
+        shop = vector3(100.92, 6616.00, 32.47),
+        duty = vector3(101.74, 6620.04, 32.95),
+        stash = vector3(107.00, 6629.88, 31.81),
+        paint = vector3(102.17, 6626.08, 31.79),
         vehicles = {
-            withdraw = vector3(-1142.04, -1994.58, 13.26),
-            spawn = vector4(-1137.42, -1993.26, 13.14, 226.07),
+            withdraw = vector3(107.08, 6614.90, 31.96),
+            spawn = vector4(110.91, 6609.32, 31.81, 315.11),
             list = { 'flatbed', 'towtruck' }
         },
         shopItems = {
@@ -147,59 +189,21 @@ Config.Shops = {
         }
     },
     --]]
-    mechanic = { -- Default Bennys Location
-        managed = true,
-        shopLabel = 'Benny\'s Motorworks',
-        showBlip = true,
-        blipSprite = 72,
-        blipColor = 46,
-        blipCoords = vector3(-211.73, -1325.28, 30.89),
-        shop = vector3(-195.80, -1318.24, 31.08),
-        duty = vector3(-205.27, -1331.29, 34.89),
-        stash = vector3(-199.58, -1314.65, 31.08),
-        paint = vector3(-202.42, -1322.16, 31.29),
-        vehicles = {
-            withdraw = vector3(0, 0, 0),
-            spawn = vector4(-362.67, -111.58, 38.7, 161.9),
-            list = { 'flatbed', 'towtruck' }
-        },
-        shopItems = {
-            { name = 'veh_toolbox',       price = 5000, amount = 50 },
-            { name = 'veh_armor',         price = 5000, amount = 50 },
-            { name = 'veh_brakes',        price = 5000, amount = 50 },
-            { name = 'veh_engine',        price = 5000, amount = 50 },
-            { name = 'veh_suspension',    price = 5000, amount = 50 },
-            { name = 'veh_transmission',  price = 5000, amount = 50 },
-            { name = 'veh_turbo',         price = 5000, amount = 50 },
-            { name = 'veh_interior',      price = 5000, amount = 50 },
-            { name = 'veh_exterior',      price = 5000, amount = 50 },
-            { name = 'veh_wheels',        price = 5000, amount = 50 },
-            { name = 'veh_neons',         price = 5000, amount = 50 },
-            { name = 'veh_xenons',        price = 5000, amount = 50 },
-            { name = 'veh_tint',          price = 5000, amount = 50 },
-            { name = 'veh_plates',        price = 5000, amount = 50 },
-            { name = 'nitrous',           price = 5000, amount = 50 },
-            { name = 'tunerlaptop',       price = 5000, amount = 50 },
-            { name = 'repairkit',         price = 5000, amount = 50 },
-            { name = 'advancedrepairkit', price = 5000, amount = 50 },
-            { name = 'tirerepairkit',     price = 5000, amount = 50 },
-        }
-    },
     --[[
-    beeker = { -- Paleto Location
+    mechanic3 = { -- Airport Location
         managed = true,
-        shopLabel = 'Beeker\'s Garage',
+        shopLabel = 'LS Airport Repairs',
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
-        blipCoords = vector3(109.95, 6627.34, 31.79),
-        shop = vector3(100.92, 6616.00, 32.47),
-        duty = vector3(101.74, 6620.04, 32.95),
-        stash = vector3(107.00, 6629.88, 31.81),
-        paint = vector3(102.17, 6626.08, 31.79),
+        blipCoords = vector3(-1154.92, -2006.41, 13.18),
+        shop = vector3(-1156.56, -1999.85, 13.19),
+        duty = vector3(-1149.17, -1998.27, 13.91),
+        stash = vector3(-1146.40, -2002.05, 13.19),
+        paint = vector3(-1170.60, -2014.90, 13.23),
         vehicles = {
-            withdraw = vector3(107.08, 6614.90, 31.96),
-            spawn = vector4(110.91, 6609.32, 31.81, 315.11),
+            withdraw = vector3(-1142.04, -1994.58, 13.26),
+            spawn = vector4(-1137.42, -1993.26, 13.14, 226.07),
             list = { 'flatbed', 'towtruck' }
         },
         shopItems = {
