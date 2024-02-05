@@ -72,19 +72,24 @@ RegisterNetEvent('qb-mechanicjob:client:InitiateHUD', function(kms)
     km = kms
 end)
 local HUD = false
+
 local function TrackDistance()
     CreateThread(function()
+        local drive = false
         while true do
             Wait(0)
             if not vehicle then break end
             local ped = PlayerPedId()
             local isDriver = GetPedInVehicleSeat(vehicle, -1) == ped
+            local invehicles = IsPedInAnyVehicle(ped, false)
             local speed = GetEntitySpeed(vehicle)
-
-            if isDriver then
+            
+            if isDriver or invehicles then
+                if isDriver and not drive then drive = true end
+                if plate and not HUD then TriggerServerEvent('qb-mechanicjob:server:InitiateHUD', plate) HUD = true Wait(5000)  end
+                --print(plate, km)
                 if plate and speed > 5 then
-                    if plate and not HUD then TriggerServerEvent('qb-mechanicjob:server:InitiateHUD', plate) HUD = true end
-                    
+                    --print('2')
                     if not drivingDistance[plate] then
                         drivingDistance[plate] = { distance = 0, lastCoords = GetEntityCoords(vehicle) }
                         InitializeVehicleComponents()
@@ -108,10 +113,9 @@ local function TrackDistance()
                             TriggerEvent("qb-hud:km",result)
                         end
                     end
-                else
-                    HUD = false
                 end
-            else
+            elseif drive then
+                drive = false
                 if drivingDistance[plate] then
                     TriggerServerEvent('qb-mechanicjob:server:updateDrivingDistance', plate, drivingDistance[plate].distance)
                     TriggerServerEvent('qb-mechanicjob:server:updateVehicleComponents', plate, vehicleComponents[plate])
@@ -131,10 +135,13 @@ end
 -- Handler
 
 AddEventHandler('gameEventTriggered', function(event)
+    --print(event)
     if event == 'CEventNetworkPlayerEnteredVehicle' then
         if not Config.UseDistance then return end
         vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+        Wait(250)
         local originalPlate = GetVehicleNumberPlateText(vehicle)
+        --print(originalPlate)
         if not originalPlate then return end
         plate = Trim(originalPlate)
         local vehicleClass = GetVehicleClass(vehicle)
